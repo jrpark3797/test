@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Judge0 API + CodeMirror</title>
+  <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://codemirror.net/lib/codemirror.js"></script>
+  <script src="https://codemirror.net/mode/python/python.js"></script>
+  <script src="testcase.js"></script>
+  <script src="function.js"></script>
+
+</head>
+<body>
+
+  <article>
+    <strong>Source Code</strong>
+    <button onclick="submit()" type="button" id="run">Run</button>
+    <button onclick="upload()" type="button" id="upload">Upload</button>
+    <br>
+    <textarea id="editer" rows="18">
+name = input()
+print("hello", name)
+    </textarea>
+  </article>
+  <script>
+    var editor = CodeMirror.fromTextArea(
+      document.getElementById("editer"), 
+      {
+        lineNumbers : true, 
+        mode : {name:"python", version:3, singleLineStringErrors:false}
+      }
+    );
+  </script>
+
+</body>
+</html>
