@@ -39,13 +39,16 @@ print("hello", name)
 
   <script>
 function getcodefromURL(){
-  var tempPageName = window.location.href;
-  console.log(tempPageName);
-  alert(tempPageName)
-  var strPageName = tempPageName.split("/");
-  pageName = strPageName[strPageName.length-1].split("?")[0];
+  var pageName = window.location.href;
+  var splitName = pageName.split("?code=");
+  var code = NULL;
 
-  return pageName;
+  if (splitName.length > 1)
+    code = splitName[1];
+
+  alert(code);
+
+  return code;
 }
 
 function getname() {
