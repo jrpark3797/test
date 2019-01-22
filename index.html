@@ -15,7 +15,9 @@
 
   <article>
     <button><a href="https://github.com/login/oauth/authorize?client_id=0356933bbc0c5a3c6d96">Login with Github</a></button>
+    <br>
     <button onclick="getcodefromURL()" type="button" id="run">getcodefromURL</button>
+    <br>
 
     <strong>Source Code</strong>
     <button onclick="submit()" type="button" id="run">Run</button>
@@ -41,14 +43,13 @@ print("hello", name)
 function getcodefromURL(){
   var pageName = window.location.href;
   var splitName = pageName.split("?code=");
-  var code = NULL;
-
-  if (splitName.length > 1)
-    code = splitName[1];
-
+  var code = "";
+  if (splitName.length > 1){
+    code += splitName[1];
+  }
   alert(code);
 
-  //return code;
+  return code;
 }
 
 function getname() {
