@@ -10,25 +10,11 @@
   <script src="testcase.js"></script>
   <script src="function.js"></script>
 
-
-
-
 </head>
 <body>
 
-<form action="https://github.com/session" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ZSHDC0yrElMoZ13X8C9WWwaDlbSuifbovZ0PBEEhhWoPWkB02hjrmKqCRDYh/O1RwvzxTcTsRVnSt9LRnzpIlQ==">
-        <input type="text" name="login" id="login_field" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus">
-        <input type="password" name="password" id="password" class="form-control form-control input-block" tabindex="2">
-
-        <input type="submit" name="commit" value="Sign in" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…">
-</form>
-
-
   <article>
-    <textarea id="id" rows="1"></textarea>
-    <textarea id="pswd" rows="1"></textarea>
-    <button onclick="login()" type="button" id="login">login</button>
-    <br>
+    <button><a href="https://github.com/login/oauth/authorize?client_id=0356933bbc0c5a3c6d96">Login with Github</button>
 
     <strong>Source Code</strong>
     <button onclick="submit()" type="button" id="run">Run</button>
@@ -41,9 +27,9 @@ print("hello", name)
   </article>
   <script>
     var editor = CodeMirror.fromTextArea(
-      document.getElementById("editer"), 
+      document.getElementById("editer"),
       {
-        lineNumbers : true, 
+        lineNumbers : true,
         mode : {name:"python", version:3, singleLineStringErrors:false}
       }
     );
@@ -51,23 +37,7 @@ print("hello", name)
   </script>
 
   <script>
-function login() {
-
-  var data = {
-    id: $("textarea[id=id]").val(),
-    pswd: $("textarea[id=pswd]").val()
-  };
-
-  alert(JSON.stringify(data, null, 4));
-
-  $.get("https://github.com/", function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });
- 
-  alert(page);
-
-  return data;
-
+function getname() {
   $.ajax({
     url: "https://api.judge0.com/submissions?wait=true",
     type: "POST",
@@ -78,7 +48,6 @@ function login() {
       result = data;
     }
   });
-
 }
   </script>
 
