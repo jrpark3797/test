@@ -15,6 +15,7 @@
 
   <article>
     <button><a href="https://github.com/login/oauth/authorize?client_id=0356933bbc0c5a3c6d96">Login with Github</a></button>
+    <button onclick="getcodefromURL()" type="button" id="run">getcodefromURL</button>
 
     <strong>Source Code</strong>
     <button onclick="submit()" type="button" id="run">Run</button>
@@ -37,6 +38,16 @@ print("hello", name)
   </script>
 
   <script>
+function getcodefromURL(){
+  var tempPageName = window.location.href;
+  console.log(tempPageName);
+  alert(tempPageName)
+  var strPageName = tempPageName.split("/");
+  pageName = strPageName[strPageName.length-1].split("?")[0];
+
+  return pageName;
+}
+
 function getname() {
   $.ajax({
     url: "https://api.judge0.com/submissions?wait=true",
